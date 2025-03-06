@@ -1,36 +1,45 @@
 <style>
-  /* Centering the container */
 .container {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
-/* Styling the heading */
 h2 {
     color: blue;
     font-size: 24px;
     font-weight: bold;
 }
 
-/* Styling the image */
 img {
-    width: 200px;  /* Fixed size */
-    height: auto;
-    margin-top: 20px;
-    cursor: pointer; /* Makes it clear it's clickable */
+    width: 200px;
+    cursor: pointer;
     border: 2px solid lightblue;
     border-radius: 10px;
 }
 
-</style>  
+input {
+    padding: 10px;
+    width: 50%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 10px;
+}
 
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+</style>  
 <div class="container">
   <h2>{{title}}</h2>  
-  <!-- Image Click Event -->
-  <img [src]="ImageURL" (click)="onClick($event)" alt="Dynamic BridgeLabz Logo"> 
+  <img [src]="ImageURL" (click)="onClick()" alt="Dynamic BridgeLabz Logo"> 
 </div>
 
 <div class="container">
-  <h2>{{title}} {{this.userName}}</h2> 
-  <input type="text" [(ngModel)]="userName" placeholder="Enter your name">
+  <h2>{{title}} {{ userName }}</h2>  
+  <input type="text" [(ngModel)]="userName" placeholder="Enter your name"> 
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
 </div>
